@@ -1,9 +1,9 @@
 const staticAccess = [
-    './',
-    './css/style.css',
-    './js/app.js',
-    './images/error-icon.png',
-    './js/fallback.json'
+    './News/',
+    './News/css/style.css',
+    './Mews/js/app.js',
+    './News/images/error-icon.png',
+    './News/js/fallback.json'
 ];
 self.addEventListener('install', async event => {
     const cache = await caches.open('news-static');
@@ -34,6 +34,6 @@ async function networkFirst(req) {
         return res;
     } catch (error) {
         const cachedReponse = await cache.match(req);
-        return cachedReponse || await caches.match('./../js/fallback.json');
+        return cachedReponse || await caches.match('./../News/js/fallback.json');
     }
 }
